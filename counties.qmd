@@ -1,0 +1,27 @@
+---
+title: "counties-nyc"
+format: html
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(readr)
+nyc <- read_csv("data/nyc_tracts.csv")
+```
+
+```{r}
+#| echo: false
+#| label: plot
+#| warning: false
+
+ggplot(nyc, aes(x = race, y = med_income)) +
+  geom_boxplot(fill = "blue", color = "black") +
+  labs(title = "Box Plot of Median Income by Race",
+       x = "Race",
+       y = "Median Income")
+```
+
